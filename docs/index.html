@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSSP Media | Photography & Videography — North Texas</title>
+  <meta name="description"
+    content="HSSP Media is a student-led photography and videography production company serving the North Texas metroplex. Real estate, celebrations, weddings, graduations, culinary and cultural event coverage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --clr-primary: #0087BD;
+      --clr-primary-rgb: 0, 135, 189;
+      --clr-dark: #111E2E;
+      --clr-dark-rgb: 17, 30, 46;
+      --clr-gold: #D4AF37;
+      --clr-gold-rgb: 212, 175, 55;
+      --clr-light-bg: #F4F6F9;
+      --sidebar-width: min(300px, 85vw);
+
+      /* Permanent Dark Mode Colors */
+      --bg-body: #0B141F;
+      --bg-surface: #142235;
+      --bg-surface-alt: #182B41;
+      --bg-sidebar: #0B141F;
+      --text-main: #EAF0F7;
+      --text-muted: #93A4BB;
+      --text-inverse: #F4F6F9;
+      --text-inverse-muted: rgba(244, 246, 249, 0.6);
+      --border-soft: rgba(244, 246, 249, 0.1);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.35);
+
+      /* Sidebar styles */
+      --text-sidebar: var(--text-inverse);
+      --text-sidebar-muted: var(--text-inverse-muted);
+      --border-sidebar: rgba(244, 246, 249, 0.08);
+      --sidebar-hover-bg: rgba(244, 246, 249, 0.06);
+      --sidebar-active-bg: rgba(var(--clr-primary-rgb), 0.18);
+      --sidebar-active-text: var(--text-inverse);
+      --sidebar-toggle-bg: rgba(244, 246, 249, 0.06);
+      --sidebar-toggle-border: rgba(244, 246, 249, 0.1);
+      --sidebar-toggle-switch-bg: rgba(244, 246, 249, 0.15);
+      --sidebar-call-color: var(--clr-gold);
+      --brand-script-color: var(--clr-gold);
+
+      --font-script: 'Tangerine', cursive;
+      --font-serif-logo: 'Cinzel', serif;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+
+      --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg-body);
+      color: var(--text-main);
+      transition: background var(--transition-base), color var(--transition-base);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--clr-gold);
+      outline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: var(--bg-sidebar);
+      color: var(--text-sidebar);
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      transition: transform var(--transition-base), background var(--transition-base), color var(--transition-base), border var(--transition-base);
+      border-right: 1px solid var(--border-sidebar);
+    }
+
+    .sidebar-brand {
+      padding: 40px 32px 24px;
+      border-bottom: 1px solid var(--border-sidebar);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      line-height: 1;
+    }
+
+    .brand-script {
+      font-family: var(--font-script);
+      font-size: 3.4rem;
+      color: var(--brand-script-color);
+      transition: color var(--transition-base);
+    }
+
+    .brand-serif {
+      font-family: var(--font-serif-logo);
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-sidebar-muted);
+      transition: color var(--transition-base);
+    }
+
+    .brand-tagline {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--text-sidebar-muted);
+      transition: color var(--transition-base);
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: 24px 16px;
+      overflow-y: auto;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-sidebar-muted);
+      transition: background var(--transition-base), color var(--transition-base);
+      margin-bottom: 2px;
+    }
+
+    .sidebar-nav a .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.5;
+      transition: all var(--transition-base);
+    }
+
+    .sidebar-nav a:hover {
+      background: var(--sidebar-hover-bg);
+      color: var(--text-sidebar);
+    }
+
+    .sidebar-nav a.active {
+      background: var(--sidebar-active-bg);
+      color: var(--sidebar-active-text);
+    }
+
+    .sidebar-nav a.active .dot {
+      background: var(--clr-gold);
+      opacity: 1;
+    }
+
+    .sidebar-footer {
+      padding: 20px 32px 28px;
+      border-top: 1px solid var(--border-sidebar);
+      transition: border var(--transition-base);
+    }
+
+
+
+    .sidebar-call {
+      display: block;
+      margin-top: 14px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--sidebar-call-color);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color var(--transition-base);
+    }
+
+    /* mobile hamburger */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1200;
+      width: 46px;
+      height: 46px;
+      background: var(--bg-sidebar);
+      border: none;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      transition: background var(--transition-base);
+    }
+
+    .hamburger span,
+    .hamburger span::before,
+    .hamburger span::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-sidebar);
+      position: relative;
+      transition: all var(--transition-base);
+    }
+
+    .hamburger span::before {
+      position: absolute;
+      top: -6px;
+    }
+
+    .hamburger span::after {
+      position: absolute;
+      top: 6px;
+    }
+
+    .hamburger.open span {
+      background: transparent;
+    }
+
+    .hamburger.open span::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .hamburger.open span::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 20, 31, 0.6);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    /* ---------- Main content ---------- */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+    }
+
+    section {
+      padding: 110px 0;
+    }
+
+    section:first-of-type {
+      padding-top: 90px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-serif-logo);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      margin: 0;
+      color: var(--text-main);
+    }
+
+    .section-heading {
+      font-size: 2.4rem;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .section-lede {
+      color: var(--text-muted);
+      max-width: 620px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 50px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 90px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(var(--clr-primary-rgb), 0.16), transparent 55%),
+        radial-gradient(circle at 10% 90%, rgba(var(--clr-gold-rgb), 0.12), transparent 45%),
+        var(--bg-body);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -10%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(var(--clr-primary-rgb), 0.06), transparent);
+      clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      border: 1px solid rgba(var(--clr-gold-rgb), 0.4);
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .hero-kicker .pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clr-gold);
+      box-shadow: 0 0 0 0 rgba(var(--clr-gold-rgb), 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(var(--clr-gold-rgb), 0.55);
+      }
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(var(--clr-gold-rgb), 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(var(--clr-gold-rgb), 0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.1rem);
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--clr-primary);
+    }
+
+    .hero p.lede {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base), color var(--transition-base);
+    }
+
+    .btn-primary {
+      background: var(--clr-primary);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(var(--clr-primary-rgb), 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(var(--clr-primary-rgb), 0.34);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border-soft);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--clr-primary);
+    }
+
+    .btn-gold {
+      background: var(--clr-gold);
+      color: var(--clr-dark);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(var(--clr-gold-rgb), 0.32);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .btn[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .hero-stats-strip {
+      position: relative;
+      z-index: 2;
+      margin-top: 72px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border-soft);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+
+    .hero-stats-strip .stat {
+      background: var(--bg-surface);
+      padding: 22px 18px;
+      text-align: left;
+    }
+
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      color: var(--clr-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .equipment-list {
+      margin-top: 28px;
+    }
+
+    .equipment-list h4 {
+      font-size: 1rem;
+      margin-bottom: 14px;
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+
+    .equipment-list ul {
+      display: grid;
+      gap: 10px;
+    }
+
+    .equipment-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      padding: 10px 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+    }
+
+    .equipment-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clr-gold);
+      flex-shrink: 0;
+    }
+
+    .cert-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .cert-pill {
+      font-size: 0.76rem;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(var(--clr-primary-rgb), 0.35);
+      color: var(--clr-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .about-stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .about-stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-stat-card .stat-num {
+      font-size: 2.1rem;
+    }
+
+    /* ---------- Portfolio / Service cards ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .service-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(var(--clr-primary-rgb), 0.1);
+      color: var(--clr-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .service-inquire-btn {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid var(--clr-primary);
+      color: var(--clr-primary);
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
+    }
+
+    .service-inquire-btn:hover {
+      background: var(--clr-primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Video showcase ---------- */
+    .video-frame-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .video-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .youtube-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-bottom: 40px;
+    }
+
+    .yt-embed-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-card);
+      background: #000;
+      aspect-ratio: 16/9;
+      position: relative;
+    }
+
+    .yt-embed-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .yt-embed-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .yt-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.24);
+      transition: background 180ms ease;
+    }
+
+    .yt-embed-card:hover .yt-play-overlay {
+      background: rgba(0, 0, 0, 0.34);
+    }
+
+    .yt-play-button {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+    }
+
+    .yt-play-button svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--bg-body);
+    }
+
+    .yt-channel-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 30px 34px;
+      flex-wrap: wrap;
+    }
+
+    .yt-channel-cta h4 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .yt-channel-cta p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-list {
+      max-width: 780px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 4px;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: 1.08rem;
+      color: var(--text-main);
+    }
+
+    .faq-question .icon {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: transform var(--transition-base), background var(--transition-base);
+      color: var(--clr-primary);
+    }
+
+    .faq-item.open .faq-question .icon {
+      transform: rotate(45deg);
+      background: var(--clr-primary);
+      color: #fff;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-base), padding var(--transition-base);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+
+    .faq-answer p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0;
+      padding-right: 40px;
+      font-size: 0.94rem;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px;
+    }
+
+    .contact-info-card {
+      background: var(--bg-sidebar);
+      color: var(--text-inverse);
+      border-radius: 18px;
+      padding: 40px 34px;
+    }
+
+    .contact-info-card h3 {
+      color: var(--text-inverse);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-info-card>p {
+      color: var(--text-inverse-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .contact-detail .ic {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(var(--clr-gold-rgb), 0.15);
+      color: var(--clr-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .contact-detail .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-inverse-muted);
+      margin-bottom: 3px;
+    }
+
+    .contact-detail .value {
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .newsletter-box {
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(244, 246, 249, 0.1);
+    }
+
+    .newsletter-box h4 {
+      color: var(--text-inverse);
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+
+    .newsletter-box p {
+      color: var(--text-inverse-muted);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(244, 246, 249, 0.08);
+      border: 1px solid rgba(244, 246, 249, 0.15);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text-inverse);
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+
+    .newsletter-form input::placeholder {
+      color: var(--text-inverse-muted);
+    }
+
+    .newsletter-form button {
+      background: var(--clr-gold);
+      color: var(--clr-dark);
+      border: none;
+      border-radius: 8px;
+      padding: 0 18px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      white-space: nowrap;
+      transition: transform var(--transition-base);
+    }
+
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+    }
+
+    .form-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .form-group label .req {
+      color: var(--clr-primary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-surface-alt);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.92rem;
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--clr-primary);
+      box-shadow: 0 0 0 3px rgba(var(--clr-primary-rgb), 0.14);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-msg {
+      margin-top: 16px;
+      padding: 13px 16px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .form-msg.show {
+      display: block;
+    }
+
+    .form-msg.success {
+      background: rgba(46, 160, 91, 0.12);
+      color: #2ea05b;
+      border: 1px solid rgba(46, 160, 91, 0.3);
+    }
+
+    .form-msg.error {
+      background: rgba(217, 68, 68, 0.1);
+      color: #d94444;
+      border: 1px solid rgba(217, 68, 68, 0.3);
+    }
+
+    .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .btn.loading .spinner {
+      display: inline-block;
+    }
+
+    .btn.loading .btn-label {
+      opacity: 0.8;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 36px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .site-footer .brand-script {
+      font-size: 1.6rem;
+      color: var(--clr-gold);
+    }
+
+    /* ---------- Modal ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 20, 31, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border-radius: 18px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 38px;
+      transform: translateY(24px);
+      transition: transform var(--transition-base);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .modal-overlay.open .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.4rem;
+    }
+
+    .modal-service-tag {
+      display: inline-block;
+      font-size: 0.76rem;
+      color: var(--clr-primary);
+      background: rgba(var(--clr-primary-rgb), 0.1);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .modal-close {
+      background: var(--bg-surface-alt);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      color: var(--text-main);
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: transform, opacity;
+    }
+
+    .fade-in-up {
+      transform: translateY(32px);
+    }
+
+    .slide-in-left {
+      transform: translateX(-40px);
+    }
+
+    .slide-in-right {
+      transform: translateX(40px);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-backdrop.open {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .hero-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .youtube-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .yt-channel-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 50px 0;
+      }
+
+      .about-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.0rem, 8vw, 2.6rem);
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+  </button>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">
+        <span class="brand-script">HSSP</span>
+        <span class="brand-serif">Media</span>
+      </div>
+      <div class="brand-tagline">Photography &amp; Videography</div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+      <a href="#hero" data-nav><span class="dot"></span>Home</a>
+      <a href="#about" data-nav><span class="dot"></span>About</a>
+      <a href="#portfolio" data-nav><span class="dot"></span>Services</a>
+      <a href="#showcase" data-nav><span class="dot"></span>Showcase</a>
+      <a href="#youtube" data-nav><span class="dot"></span>YouTube</a>
+      <a href="#faq" data-nav><span class="dot"></span>FAQ</a>
+      <a href="#contact" data-nav><span class="dot"></span>Contact</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="tel:9453088175" class="sidebar-call">📞 945-308-8175</a>
+    </div>
+  </aside>
+
+  <div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-kicker"><span class="pulse"></span>Now booking North Texas events</div>
+        <h1>Stories worth <em>watching</em>,<br>moments worth <em>keeping</em>.</h1>
+        <p class="lede">HSSP Media is a student-led photography and videography production company based in the
+          North Texas metroplex — capturing real estate, celebrations, ceremonies, and culture with a cinematic
+          eye.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a Session</a>
+          <a href="#portfolio" class="btn btn-outline">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <span class="eyebrow reveal fade-in-up">About Us</span>
+        <h2 class="section-heading reveal fade-in-up">Built by students, driven by craft.</h2>
+        <p class="section-lede reveal fade-in-up">We're a team of young creatives from across the North Texas
+          metroplex who turned a shared passion for photography and film into a full production company, bringing
+          professional-grade equipment and a fresh creative eye to every shoot.</p>
+
+        <div class="about-grid">
+          <div class="about-copy reveal slide-in-left">
+            <p>What started as a small group covering friends' graduations and family gatherings has grown into a
+              company trusted for real estate walkthroughs, cultural ceremonies, birthdays, and culinary content across
+              the metroplex.</p>
+            <p>We combine cinema-grade cameras and stabilization gear with a student's energy and attention to detail —
+              because we know these moments only happen once.</p>
+
+
+
+            <div class="cert-row">
+              <span class="cert-pill">Adobe Premiere Pro</span>
+              <span class="cert-pill">Photoshop</span>
+              <span class="cert-pill">Lightroom</span>
+            </div>
+          </div>
+
+          <div class="about-stats-grid reveal slide-in-right">
+            <div class="about-stat-card"><span class="stat-num">3+</span><span class="stat-label">Years Active</span>
+            </div>
+            <div class="about-stat-card"><span class="stat-num">10K+</span><span class="stat-label">Engagements</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO / SERVICES -->
+    <section id="portfolio">
+      <div class="container">
+        <span class="eyebrow reveal fade-in-up">Services</span>
+        <h2 class="section-heading reveal fade-in-up">Coverage for every kind of moment.</h2>
+        <p class="section-lede reveal fade-in-up">Six core services, each shaped around what actually matters for that
+          event — tell us a bit about yours and we'll follow up with availability and pricing.</p>
+
+        <div class="services-grid">
+          <div class="service-card reveal fade-in-up">
+            <div class="service-icon">🏡</div>
+            <h3>Real Estate &amp; Housewarming</h3>
+            <p>Listing-ready photo and video walkthroughs, plus warm coverage of housewarming celebrations for new
+              homeowners.</p>
+          </div>
+
+          <div class="service-card reveal fade-in-up">
+            <div class="service-icon">🎉</div>
+            <h3>Birthdays &amp; Celebrations</h3>
+            <p>Candid and posed coverage of birthdays, anniversaries, and milestone celebrations — every laugh, every
+              toast.</p>
+          </div>
+
+          <div class="service-card reveal fade-in-up">
+            <div class="service-icon">💍</div>
+            <h3>Bridal &amp; Haldi Ceremonies</h3>
+            <p>Rich, color-true coverage of bridal sessions and haldi ceremonies that honors every tradition and detail.
+            </p>
+          </div>
+
+          <div class="service-card reveal fade-in-up">
+            <div class="service-icon">🎓</div>
+            <h3>Graduation Events</h3>
+            <p>Fast-turnaround graduation photography with our signature 4-hour delivery window — cap toss to campus
+              portraits.</p>
+          </div>
+
+          <div class="service-card reveal fade-in-up">
+            <div class="service-icon">🍽️</div>
+            <h3>Culinary &amp; Food Media</h3>
+            <p>Appetizing photo and video content for restaurants, home chefs, and food brands built for menus and
+              social.</p>
+          </div>
+
+          <div class="service-card reveal fade-in-up">
+            <div class="service-icon">🪔</div>
+            <h3>Cultural Events</h3>
+            <p>Dedicated coverage of cultural gatherings, capturing performances, rituals, and
+              community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOUTUBE PORTFOLIO -->
+    <section id="youtube">
+      <div class="container">
+        <span class="eyebrow reveal fade-in-up">YouTube Portfolio</span>
+        <h2 class="section-heading reveal fade-in-up">More stories, one channel.</h2>
+        <p class="section-lede reveal fade-in-up">Browse recent edits and full event coverage on our channel.</p>
+
+        <div class="youtube-grid">
+          <div class="yt-embed-card reveal slide-in-left">
+            <a href="https://www.youtube.com/watch?v=FUZMHuWGZCs" target="_blank" rel="noopener noreferrer">
+              <img class="yt-embed-thumbnail" src="https://img.youtube.com/vi/FUZMHuWGZCs/hqdefault.jpg" alt="DFW మనబడి స్నాతకోత్సవం 2026 video thumbnail">
+              <div class="yt-play-overlay">
+                <span class="yt-play-button" aria-label="Play video">
+                  <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24 14 L 24 34 L 46 24 Z" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="yt-embed-card reveal slide-in-right">
+            <a href="https://www.youtube.com/watch?v=lJdCt3QSGCk" target="_blank" rel="noopener noreferrer">
+              <img class="yt-embed-thumbnail" src="https://img.youtube.com/vi/lJdCt3QSGCk/hqdefault.jpg" alt="Niranjan 60th Birthday Highlights! video thumbnail">
+              <div class="yt-play-overlay">
+                <span class="yt-play-button" aria-label="Play video">
+                  <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24 14 L 24 34 L 46 24 Z" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="yt-channel-cta reveal fade-in-up">
+          <div>
+            <h4>Want the full library?</h4>
+            <p>Subscribe on YouTube @jupitermax9435 for full-length event coverage and behind-the-scenes edits.</p>
+          </div>
+          <a href="https://www.youtube.com/@jupitermax9435" target="_blank" rel="noopener noreferrer"
+            class="btn btn-gold">Visit Channel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <span class="eyebrow reveal fade-in-up">FAQ</span>
+        <h2 class="section-heading reveal fade-in-up">Common questions.</h2>
+
+        <div class="faq-list reveal fade-in-up">
+          <div class="faq-item">
+            <button class="faq-question"><span>What is HSSP Media?</span><span class="icon">+</span></button>
+            <div class="faq-answer">
+              <p>HSSP Media is a student-led media production company based in the North Texas metroplex, offering
+                photography and videography for a range of events and businesses.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>How much do services cost?</span><span class="icon">+</span></button>
+            <div class="faq-answer">
+              <p>Pricing is tailored to each event's scope and requirements. Reach out through the contact form or an
+                inquiry above and we'll follow up with a personalized quote.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Do you offer same-day edits?</span><span class="icon">+</span></button>
+            <div class="faq-answer">
+              <p>We generally recommend our standard post-production timeline to ensure the best quality edit, though
+                our graduation package includes an expedited 4-hour delivery window.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Do you offer drone coverage?</span><span class="icon">+</span></button>
+            <div class="faq-answer">
+              <p>Drone coverage is currently unavailable, but we're happy to discuss creative alternatives for
+                aerial-style shots.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Can we choose the music for our video?</span><span
+                class="icon">+</span></button>
+            <div class="faq-answer">
+              <p>Yes — we're happy to use music you choose, as long as it aligns with licensing requirements for the
+                final delivery format.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Can we get the RAW footage or photos?</span><span
+                class="icon">+</span></button>
+            <div class="faq-answer">
+              <p>RAW footage and unedited photos are available upon request for an additional fee — just mention it in
+                your inquiry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <span class="eyebrow reveal fade-in-up">Contact</span>
+        <h2 class="section-heading reveal fade-in-up">Let's plan your shoot.</h2>
+        <p class="section-lede reveal fade-in-up">Tell us about your event and we'll get back to you with availability,
+          ideas, and pricing.</p>
+
+        <div class="contact-grid">
+          <div class="contact-info-card reveal slide-in-left">
+            <h3>HSSP Media</h3>
+            <p>Serving the North Texas metroplex for real estate, celebrations, ceremonies, graduations, culinary
+              content, and cultural events.</p>
+
+            <div class="contact-detail">
+              <div class="ic">📞</div>
+              <div>
+                <div class="label">Phone</div>
+                <div class="value">945-308-8175</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="ic">📍</div>
+              <div>
+                <div class="label">Location</div>
+                <div class="value">North Texas Metroplex</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="ic">▶</div>
+              <div>
+                <div class="label">YouTube</div>
+                <div class="value">@jupitermax9435</div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="form-card reveal slide-in-right">
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactName">Name <span class="req">*</span></label>
+                  <input type="text" id="contactName" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="contactEmail">Email <span class="req">*</span></label>
+                  <input type="email" id="contactEmail" name="email" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactPhone">Phone</label>
+                  <input type="tel" id="contactPhone" name="phone">
+                </div>
+                <div class="form-group">
+                  <label for="contactEventType">Event Type</label>
+                  <select id="contactEventType" name="event_type">
+                    <option value="">Select one</option>
+                    <option>Real Estate & Housewarming</option>
+                    <option>Birthdays & Celebrations</option>
+                    <option>Bridal & Haldi Ceremonies</option>
+                    <option>Graduation Events</option>
+                    <option>Culinary & Food Media</option>
+                    <option>Cultural Events</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contactEventDate">Event Date</label>
+                <input type="date" id="contactEventDate" name="event_date">
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message <span class="req">*</span></label>
+                <textarea id="contactMessage" name="message" required
+                  placeholder="Tell us a bit about your event..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="contactSubmitBtn">
+                <span class="spinner"></span><span class="btn-label">Send Message</span>
+              </button>
+              <div class="form-msg" id="contactMsg"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span class="brand-script">HSSP</span>
+      <p style="margin-top: 6px;">© <span id="year"></span> HSSP Media — North Texas Metroplex. All rights
+        reserved.</p>
+    </footer>
+  </div>
+
+  <!-- INQUIRY MODAL -->
+  <div class="modal-overlay" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Service Inquiry</h3>
+        <button class="modal-close" id="modalCloseBtn" aria-label="Close">✕</button>
+      </div>
+      <span class="modal-service-tag" id="modalServiceTag">Service</span>
+
+      <form id="inquiryForm" novalidate>
+        <input type="hidden" id="inquiryServiceType" name="service_type">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inquiryName">Name <span class="req">*</span></label>
+            <input type="text" id="inquiryName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="inquiryEmail">Email <span class="req">*</span></label>
+            <input type="email" id="inquiryEmail" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inquiryPhone">Phone</label>
+            <input type="tel" id="inquiryPhone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="inquiryPreferredDate">Preferred Date</label>
+            <input type="date" id="inquiryPreferredDate" name="preferred_date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inquiryBudget">Budget Range</label>
+          <select id="inquiryBudget" name="budget_range">
+            <option value="">Select one</option>
+            <option>Under $250</option>
+            <option>$250 - $500</option>
+            <option>$500 - $1,000</option>
+            <option>$1,000 - $2,000</option>
+            <option>$2,000+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inquiryDetails">Details <span class="req">*</span></label>
+          <textarea id="inquiryDetails" name="details" required
+            placeholder="Location, guest count, timing, must-have shots..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="inquirySubmitBtn">
+          <span class="spinner"></span><span class="btn-label">Send Inquiry</span>
+        </button>
+        <div class="form-msg" id="inquiryMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var API_BASE = '';
+      var FALLBACK_MSG = "Something went wrong on our end. Please call us directly at 945-308-8175 and we'll take care of you.";
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+
+
+      /* ---------- Mobile hamburger ---------- */
+      var hamburgerBtn = document.getElementById('hamburgerBtn');
+      var sidebar = document.getElementById('sidebar');
+      var backdrop = document.getElementById('sidebarBackdrop');
+
+      function closeSidebar() {
+        sidebar.classList.remove('open');
+        backdrop.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+      function toggleSidebar() {
+        var open = sidebar.classList.toggle('open');
+        backdrop.classList.toggle('open', open);
+        hamburgerBtn.classList.toggle('open', open);
+        hamburgerBtn.setAttribute('aria-expanded', String(open));
+      }
+
+      hamburgerBtn.addEventListener('click', toggleSidebar);
+      backdrop.addEventListener('click', closeSidebar);
+      document.getElementById('sidebarNav').addEventListener('click', function (e) {
+        if (e.target.closest('a')) closeSidebar();
+      });
+
+      /* ---------- Smooth scroll + active nav highlighting ---------- */
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+      var sections = navLinks.map(function (link) {
+        return document.querySelector(link.getAttribute('href'));
+      }).filter(Boolean);
+
+      function onScrollSpy() {
+        var scrollPos = window.scrollY + window.innerHeight * 0.35;
+        var current = sections[0];
+        sections.forEach(function (sec) {
+          if (sec.offsetTop <= scrollPos) current = sec;
+        });
+        navLinks.forEach(function (link) {
+          var isActive = link.getAttribute('href') === '#' + current.id;
+          link.classList.toggle('active', isActive);
+        });
+      }
+      window.addEventListener('scroll', onScrollSpy, { passive: true });
+      onScrollSpy();
+
+      /* ---------- Scroll reveal ---------- */
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('in-view'); });
+      }
+
+      /* ---------- FAQ accordion ---------- */
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', function () {
+          var wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+            openItem.classList.remove('open');
+          });
+          if (!wasOpen) item.classList.add('open');
+        });
+      });
+
+      /* ---------- Form helpers ---------- */
+      function setLoading(btn, loading) {
+        btn.disabled = loading;
+        btn.classList.toggle('loading', loading);
+      }
+
+      function showMsg(el, text, type) {
+        el.textContent = text;
+        el.className = 'form-msg show ' + type;
+      }
+
+      function hideMsg(el) {
+        el.className = 'form-msg';
+        el.textContent = '';
+      }
+
+      async function submitJSON(url, payload) {
+        var response = await fetch(API_BASE + url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        var data = null;
+        try { data = await response.json(); } catch (e) { }
+        if (!response.ok || !data || data.ok === false) {
+          var message = (data && data.error) ? data.error : FALLBACK_MSG;
+          throw new Error(message);
+        }
+        return data;
+      }
+
+      /* ---------- Contact form ---------- */
+      var contactForm = document.getElementById('contactForm');
+      var contactMsg = document.getElementById('contactMsg');
+      var contactSubmitBtn = document.getElementById('contactSubmitBtn');
+
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        hideMsg(contactMsg);
+
+        var payload = {
+          name: document.getElementById('contactName').value.trim(),
+          email: document.getElementById('contactEmail').value.trim(),
+          phone: document.getElementById('contactPhone').value.trim(),
+          event_type: document.getElementById('contactEventType').value,
+          event_date: document.getElementById('contactEventDate').value,
+          message: document.getElementById('contactMessage').value.trim()
+        };
+
+        if (!payload.name || !payload.email || !payload.message) {
+          showMsg(contactMsg, 'Please fill in your name, email, and message.', 'error');
+          return;
+        }
+
+        setLoading(contactSubmitBtn, true);
+        try {
+          var data = await submitJSON('/api/contact', payload);
+          showMsg(contactMsg, data.message || "Thanks — we'll be in touch soon.", 'success');
+          contactForm.reset();
+        } catch (err) {
+          showMsg(contactMsg, err.message || FALLBACK_MSG, 'error');
+        } finally {
+          setLoading(contactSubmitBtn, false);
+        }
+      });
+
+
+
+      /* ---------- Inquiry modal ---------- */
+      var modal = document.getElementById('inquiryModal');
+      var modalServiceTag = document.getElementById('modalServiceTag');
+      var inquiryServiceTypeInput = document.getElementById('inquiryServiceType');
+      var inquiryForm = document.getElementById('inquiryForm');
+      var inquiryMsg = document.getElementById('inquiryMsg');
+      var inquirySubmitBtn = document.getElementById('inquirySubmitBtn');
+      var lastFocusedEl = null;
+
+      function openModal(serviceType) {
+        lastFocusedEl = document.activeElement;
+        modalServiceTag.textContent = serviceType;
+        inquiryServiceTypeInput.value = serviceType;
+        hideMsg(inquiryMsg);
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        var firstInput = document.getElementById('inquiryName');
+        if (firstInput) firstInput.focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocusedEl) lastFocusedEl.focus();
+      }
+
+      document.querySelectorAll('.service-inquire-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openModal(btn.getAttribute('data-service'));
+        });
+      });
+
+      document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      inquiryForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        hideMsg(inquiryMsg);
+
+        var payload = {
+          service_type: inquiryServiceTypeInput.value,
+          name: document.getElementById('inquiryName').value.trim(),
+          email: document.getElementById('inquiryEmail').value.trim(),
+          phone: document.getElementById('inquiryPhone').value.trim(),
+          preferred_date: document.getElementById('inquiryPreferredDate').value,
+          budget_range: document.getElementById('inquiryBudget').value,
+          details: document.getElementById('inquiryDetails').value.trim()
+        };
+
+        if (!payload.name || !payload.email || !payload.details) {
+          showMsg(inquiryMsg, 'Please fill in your name, email, and event details.', 'error');
+          return;
+        }
+
+        setLoading(inquirySubmitBtn, true);
+        try {
+          var data = await submitJSON('/api/inquiry', payload);
+          showMsg(inquiryMsg, data.message || "Inquiry received — we'll follow up shortly.", 'success');
+          inquiryForm.reset();
+          inquiryServiceTypeInput.value = payload.service_type;
+          setTimeout(closeModal, 1800);
+        } catch (err) {
+          showMsg(inquiryMsg, err.message || FALLBACK_MSG, 'error');
+        } finally {
+          setLoading(inquirySubmitBtn, false);
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
