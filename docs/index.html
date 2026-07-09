@@ -365,6 +365,35 @@
       max-width: 720px;
     }
 
+    .hero-brand-logo {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      margin: 0 0 18px;
+    }
+
+    .hero-brand-logo .brand-logo {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      line-height: 1;
+    }
+
+    .hero-brand-logo .brand-script {
+      font-family: var(--font-script);
+      font-size: 5.4rem;
+      color: var(--brand-script-color);
+      letter-spacing: -0.04em;
+    }
+
+    .hero-brand-logo .brand-serif {
+      font-family: var(--font-serif-logo);
+      font-size: 1.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ba5b7;
+    }
+
     .hero-kicker {
       display: inline-flex;
       align-items: center;
@@ -1312,6 +1341,12 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div class="container hero-inner">
+        <div class="hero-brand-logo">
+          <div class="brand-logo">
+            <span class="brand-script">HSSP</span>
+            <span class="brand-serif">Media</span>
+          </div>
+        </div>
         <div class="hero-kicker"><span class="pulse"></span>Now booking North Texas events</div>
         <h1>Stories worth <em>watching</em>,<br>moments worth <em>keeping</em>.</h1>
         <p class="lede">HSSP Media is a student-led photography and videography production company based in the
